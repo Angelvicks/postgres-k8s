@@ -1,0 +1,14 @@
+#Dynamic Provisioning
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: hostpath
+  #Use THE volume name for static provisioning
+  #volumeName: postgres-pv

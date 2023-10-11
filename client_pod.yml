@@ -3,6 +3,10 @@ kind: Pod
 metadata:
   name: client-postgres
 spec:
+  volumes:
+    - name: pv-storage
+      persistentVolumeClaim:
+        claimName: postgres-pvc
   containers:
   - name: client-container
     image: postgres:15
@@ -11,3 +15,7 @@ spec:
         value: postgres
       - name: POSTGRES_USER
         value: postgres
+
+    volumeMounts:
+      - mountPath: "/var/lib/postgresql/data/pgdata"
+        name: pv-storage
