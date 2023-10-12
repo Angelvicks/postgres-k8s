@@ -7,11 +7,12 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
   capacity:
     storage: 1Gi
   storageClassName: hostpath
   local:
-    path: /run/desktop/mnt/host/c/Users/Ange TAFFO/Documents/postgres-k8s/tmp
+    path: /run/desktop/mnt/host/c/Users/Ange TAFFO/Documents/postgres-k8s/volume
     
   nodeAffinity:
     required:
